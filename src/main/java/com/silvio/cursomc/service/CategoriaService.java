@@ -9,8 +9,6 @@ import com.silvio.cursomc.repositories.CategoriaRepository;
 
 import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
 
-
-
 @Service
 public class CategoriaService {
 	@Autowired

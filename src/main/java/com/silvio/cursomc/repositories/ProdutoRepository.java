@@ -8,6 +8,4 @@ import com.silvio.cursomc.domain.Produto;
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
 
-
-
 }

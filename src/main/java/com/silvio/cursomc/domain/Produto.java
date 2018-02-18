@@ -30,6 +30,7 @@ public class Produto implements java.io.Serializable{
 	inverseJoinColumns = @JoinColumn(name="categoria_id"))
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	
 	public Produto() {}
 	public Produto(Integer id, String name, Double preco) {
 		super();

@@ -10,5 +10,4 @@ public class ObjectNotFoundExcepion extends RuntimeException{
 	public ObjectNotFoundExcepion(String msg, Throwable cause) {
 		super(msg, cause);
 	}
-
 }

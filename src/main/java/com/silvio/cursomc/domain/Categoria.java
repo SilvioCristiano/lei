@@ -26,7 +26,8 @@ public class Categoria implements java.io.Serializable{
 	public Categoria() {
 		
 	}
-
+ 
+	
 	public Categoria(Integer id, String name) {
 		super();
 		this.id = id;

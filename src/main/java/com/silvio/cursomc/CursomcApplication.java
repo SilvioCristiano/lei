@@ -22,6 +22,7 @@ public class CursomcApplication implements CommandLineRunner{
 		SpringApplication.run(CursomcApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... arg0) throws Exception {
 		
