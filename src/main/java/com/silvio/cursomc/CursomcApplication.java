@@ -3,8 +3,6 @@ package com.silvio.cursomc;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
-import javax.xml.stream.events.EndElement;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
