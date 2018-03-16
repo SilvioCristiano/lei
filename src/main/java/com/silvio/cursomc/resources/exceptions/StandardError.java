@@ -1,9 +1,9 @@
 package com.silvio.cursomc.resources.exceptions;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class StandardError implements Serializable {
 	/**
 	 * 
@@ -11,10 +11,10 @@ public class StandardError implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer status;
 	private String msg;
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private Long timeStamp;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
+	private Date timeStamp;
 	
-	public StandardError(Integer status, String msg, Long timeStamp) {
+	public StandardError(Integer status, String msg, Date timeStamp) {
 		super();
 		this.status = status;
 		this.msg = msg;
@@ -32,10 +32,10 @@ public class StandardError implements Serializable {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	public Long getTimeStamp() {
+	public Date getTimeStamp() {
 		return timeStamp;
 	}
-	public void setTimeStamp(Long timeStamp) {
+	public void setTimeStamp(Date timeStamp) {
 		this.timeStamp = timeStamp;
 	}
 	

@@ -19,7 +19,7 @@ import com.silvio.cursomc.service.CategoriaService;
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
-	
+
 	@Autowired
 	private CategoriaService service;
 
@@ -28,19 +28,26 @@ public class CategoriaResource {
 		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
-	
+
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Categoria> insert(@RequestBody Categoria obj) {
-		 obj = service.insert(obj);
-		 URI url = ServletUriComponentsBuilder.fromCurrentRequest()
-				 .path("/{id}").buildAndExpand(obj.getId()).toUri();
+		obj = service.insert(obj);
+		URI url = ServletUriComponentsBuilder.fromCurrentRequest()
+				.path("/{id}").buildAndExpand(obj.getId()).toUri();
 		return ResponseEntity.created(url).build();
 	}
 	@RequestMapping(value ="/{id}",method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@RequestBody Categoria obj,@PathVariable Integer id){
 		obj.setId(id); 
 		obj = service.update(obj);
-		 
+
 		return ResponseEntity.noContent().build();
 	}
+
+	@RequestMapping(value ="/{id}",method=RequestMethod.DELETE)
+	public ResponseEntity<Void> delete(@PathVariable Integer id) {
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
+
 }
