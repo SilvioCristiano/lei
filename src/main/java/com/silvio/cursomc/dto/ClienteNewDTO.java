@@ -2,21 +2,35 @@ package com.silvio.cursomc.dto;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.silvio.cursomc.service.validation.ClienteInsert;
+
+@ClienteInsert
 public class ClienteNewDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@NotEmpty(message="Preechimento obritório")
+	@Length(min=5, max=120, message="O tamanho deve ser entre 5 e 120 caracteres")
 	private String name;
+	@NotEmpty(message="Preechimento obritório")
+	@Email(message="E-mail inválido")
 	private String email;
+	@NotEmpty(message="Preechimento obritório")
 	private String cpfOrCnpj;
 	private Integer tipo;
-	
+	@NotEmpty(message="Preechimento obritório")
 	private String logradouro;
+	@NotEmpty(message="Preechimento obritório")
 	private String numero;
 	private String compremento;
 	private String bairro;
+	@NotEmpty(message="Preechimento obritório")
 	private String cep;
-	
+	@NotEmpty(message="Preechimento obritório")
 	private String telefone1;
 	private String telefone2;
 	private String telefone3;
