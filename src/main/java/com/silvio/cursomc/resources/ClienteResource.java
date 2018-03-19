@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.dto.ClienteDTO;
+import com.silvio.cursomc.dto.ClienteNewDTO;
 import com.silvio.cursomc.service.ClienteService;
 
 @Controller
@@ -35,7 +36,7 @@ public class ClienteResource {
 		return ResponseEntity.ok().body(obj);
 	}
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Cliente> insert(@Valid @RequestBody ClienteDTO objDTO) {
+	public ResponseEntity<Cliente> insert(@Valid @RequestBody ClienteNewDTO objDTO) {
 		Cliente obj = service.fromDTO(objDTO);
 		obj = service.insert(obj);
 		URI url = ServletUriComponentsBuilder.fromCurrentRequest()
