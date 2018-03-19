@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.domain.Pedido;
 import com.silvio.cursomc.repositories.PedidoRepository;
 import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
