@@ -2,19 +2,22 @@ package com.silvio.cursomc.dto;
 
 import java.io.Serializable;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.silvio.cursomc.domain.Cliente;
 
 public class ClienteDTO implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private Integer id;
+	@NotEmpty(message="Preechimento obritório")
+	@Length(min=5, max=120, message="O tamanho deve ser entre 5 e 120 caracteres")
 	private String name;
+	@NotEmpty(message="Preechimento obritório")
+	@Email(message="E-mail inválido")
 	private String email;
-	private String cpfOrCnpj;
-	private Integer tipo;
 	
 	public ClienteDTO() {}
 	
@@ -22,8 +25,7 @@ public class ClienteDTO implements Serializable{
 		id = cliente.getId();
 		name = cliente.getName();
 		email = cliente.getEmail();
-		cpfOrCnpj = cliente.getCpfOrCnpj();
-		tipo = cliente.getTipo().getCod();
+	
 	}
 
 	public Integer getId() {
@@ -50,21 +52,9 @@ public class ClienteDTO implements Serializable{
 		this.email = email;
 	}
 
-	public String getCpfOrCnpj() {
-		return cpfOrCnpj;
-	}
 
-	public void setCpfOrCnpj(String cpfOrCnpj) {
-		this.cpfOrCnpj = cpfOrCnpj;
-	}
 
-	public Integer getTipo() {
-		return tipo;
-	}
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
 	
 	
 	

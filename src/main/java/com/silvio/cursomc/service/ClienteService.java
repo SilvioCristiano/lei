@@ -5,9 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+
 import com.silvio.cursomc.domain.Cliente;
+import com.silvio.cursomc.dto.ClienteDTO;
 import com.silvio.cursomc.repositories.ClienteRepository;
 import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
 import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
@@ -33,9 +38,11 @@ public class ClienteService {
 	}
 
 	public Cliente update(Cliente obj) {
-		find(obj.getId());
-		return repo.save(obj);
+		Cliente newObj = find(obj.getId());
+		updateData(newObj, obj);
+		return repo.save(newObj);
 	}
+
 
 	public void delete(Integer id) {
 		find(id);
@@ -43,12 +50,30 @@ public class ClienteService {
 		repo.delete(id);
 		}
 		catch(DataIntegrityViolationException e){
-			throw new DataIntegrityExcepion("Não é possivel excluir uma categoria que possui produto");
+			throw new DataIntegrityExcepion("Não é possivel excluir porque há entidades relacionadas");
 		}
 	}
 
 	public List<Cliente> findAll() {
 		return repo.findAll();
 	}
+
+		
+	public Page<Cliente> findPage(Integer page, Integer linePerPage, String orgerBy, String direction){
+		PageRequest pageRequest = new PageRequest(page, linePerPage,Direction.valueOf(direction), orgerBy);
+		return repo.findAll(pageRequest);
+		
+	}
+	
+	public Cliente fromDTO(ClienteDTO objDTO) {
+		return new Cliente(objDTO.getId(), objDTO.getName(), objDTO.getEmail(), null, null);
+		
+	}
+	private void updateData(Cliente newObj, Cliente obj) {
+		newObj.setName(obj.getName());
+		newObj.setEmail(obj.getEmail());
+		
+	}
+
 
 }
