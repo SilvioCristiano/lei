@@ -63,6 +63,7 @@ public class Cliente implements Serializable{
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
+	@JsonIgnore
 	public void setTipo(Integer tipo) {
 		this.tipo = tipo;
 	}
@@ -93,6 +94,7 @@ public class Cliente implements Serializable{
 	public TipoCliente getTipo() {
 		return TipoCliente.toEnum(tipo);
 	}
+
 	public void setTipo(TipoCliente tipo) {
 		this.tipo = tipo.getCod();
 	}
