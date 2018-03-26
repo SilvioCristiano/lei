@@ -13,6 +13,7 @@ import com.silvio.cursomc.service.DBService;
 @Configuration
 @Profile("dev")
 public class DevConfig {
+	
 	@Autowired
 	private DBService dbService;
 	
@@ -22,9 +23,9 @@ public class DevConfig {
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
 		
-		if(!"create".equals(strategy)) {
+	/*	if(!"create".equals(strategy)) {
 			return false;
-		}
+		}*/
 		dbService.InstantiateTestDatabase();
 		
 		return true;
