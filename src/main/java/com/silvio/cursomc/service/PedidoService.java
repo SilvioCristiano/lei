@@ -56,7 +56,7 @@ public class PedidoService {
 	public Pedido insert(Pedido obj) {
 		obj.setId(null);
 		obj.setInstante(new Date());
-		//obj.setCliente(clienteRepository.findOne(obj.getCliente().getId()));
+		obj.setCliente(clienteRepository.findOne(obj.getCliente().getId()));
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		if (obj.getPagamento() instanceof PagamentoComBoleto) {
@@ -73,6 +73,7 @@ public class PedidoService {
 		}
 		itemPedidoRepository.save(obj.getItens());
 		//emailService.sendOrderConfirmationEmail(obj);
+		System.out.println(obj);
 		return obj;
 	}
 	
