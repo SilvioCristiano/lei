@@ -21,6 +21,8 @@ import com.silvio.cursomc.repositories.ItemPedidoRepository;
 import com.silvio.cursomc.repositories.PagamentoRepository;
 import com.silvio.cursomc.repositories.PedidoRepository;
 import com.silvio.cursomc.repositories.ProdutoRepository;
+import com.silvio.cursomc.security.UserSS;
+import com.silvio.cursomc.service.exceptions.AuthorizationException;
 import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
 import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
 
@@ -99,12 +101,12 @@ public class PedidoService {
 		return repo.findAll();
 	}
 	public Page<Pedido> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
-	/*	UserSS user = UserService.authenticated();
+		UserSS user = UserService.authenticated();
 		if (user == null) {
 			throw new AuthorizationException("Acesso negado");
-		}*/
+		}
 		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
-		Cliente cliente =  new Cliente();//clienteRepository.findOne(user.getId());
+		Cliente cliente =  clienteRepository.findOne(user.getId());
 		return repo.findByCliente(cliente, pageRequest);
 	}
 

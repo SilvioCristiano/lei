@@ -8,22 +8,29 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.silvio.cursomc.domain.Cidade;
 import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.domain.Endereco;
+import com.silvio.cursomc.domain.enums.Perfil;
 import com.silvio.cursomc.domain.enums.TipoCliente;
 import com.silvio.cursomc.dto.ClienteDTO;
 import com.silvio.cursomc.dto.ClienteNewDTO;
 import com.silvio.cursomc.repositories.CidadeRepository;
 import com.silvio.cursomc.repositories.ClienteRepository;
 import com.silvio.cursomc.repositories.EnderecoRepository;
+import com.silvio.cursomc.security.UserSS;
+import com.silvio.cursomc.service.exceptions.AuthorizationException;
 import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
 import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
 
 @Service
 public class ClienteService {
+	@Autowired
+	private BCryptPasswordEncoder pe;
+	
 	@Autowired
 	private ClienteRepository repo;
 	
@@ -35,10 +42,15 @@ public class ClienteService {
 	
 	public Cliente find(Integer id) {
 
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+
 		Cliente obj = repo.findOne(id);
-		
-		if(obj==null) {
-			throw new ObjectNotFoundExcepion("Objeto não encontrado! Id " + id + " Tipo: " + Cliente.class.getName());
+		if (obj == null) {
+			throw new ObjectNotFoundExcepion(
+					"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName());
 		}
 		return obj;
 	}
@@ -79,13 +91,13 @@ public class ClienteService {
 	}
 	
 	public Cliente fromDTO(ClienteDTO objDTO) {
-		return new Cliente(objDTO.getId(), objDTO.getName(), objDTO.getEmail(), null, null);
+		return new Cliente(objDTO.getId(), objDTO.getName(), objDTO.getEmail(), null, null, null);
 		
 	}
 	public Cliente fromDTO(ClienteNewDTO objDTO) {
-		Cliente cli = new Cliente(null, objDTO.getName(), objDTO.getEmail(), objDTO.getCpfOrCnpj(), TipoCliente.toEnum(objDTO.getTipo()));
+		Cliente cli = new Cliente(null, objDTO.getName(), objDTO.getEmail(), objDTO.getCpfOuCnpj(), TipoCliente.toEnum(objDTO.getTipo()), pe.encode(objDTO.getSenha()));
 		Cidade cid = cidadeRepository.findOne(objDTO.getCidadeId());
-		Endereco end = new Endereco(null, objDTO.getLogradouro(), objDTO.getNumero(), objDTO.getCompremento(), objDTO.getBairro(), objDTO.getCep(), cid, cli);
+		Endereco end = new Endereco(null, objDTO.getLogradouro(), objDTO.getNumero(), objDTO.getComplemento(), objDTO.getBairro(), objDTO.getCep(), cid, cli);
 		cli.getEnderecos().add(end);
 		cli.getTelefones().add(objDTO.getTelefone1());
 		if(objDTO.getTelefone2() != null) {
