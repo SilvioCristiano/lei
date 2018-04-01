@@ -13,8 +13,8 @@ import org.springframework.stereotype.Service;
 import com.silvio.cursomc.domain.Categoria;
 import com.silvio.cursomc.dto.CategoriaDTO;
 import com.silvio.cursomc.repositories.CategoriaRepository;
-import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
+import com.silvio.cursomc.service.exceptions.DataIntegrityException;
+import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -26,7 +26,7 @@ public class CategoriaService {
 		Categoria obj = repo.findOne(id);
 		
 		if(obj==null) {
-			throw new ObjectNotFoundExcepion("Objeto não encontrado! Id " + id + " Tipo: " + Categoria.class.getName());
+			throw new ObjectNotFoundException("Objeto não encontrado! Id " + id + " Tipo: " + Categoria.class.getName());
 		}
 		return obj;
 	}
@@ -48,7 +48,7 @@ public class CategoriaService {
 		repo.delete(id);
 		}
 		catch(DataIntegrityViolationException e){
-			throw new DataIntegrityExcepion("Não é possivel excluir uma categoria que possui produto");
+			throw new DataIntegrityException("Não é possivel excluir uma categoria que possui produto");
 		}
 	}
 

@@ -14,8 +14,8 @@ import com.silvio.cursomc.domain.Categoria;
 import com.silvio.cursomc.domain.Produto;
 import com.silvio.cursomc.repositories.CategoriaRepository;
 import com.silvio.cursomc.repositories.ProdutoRepository;
-import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
+import com.silvio.cursomc.service.exceptions.DataIntegrityException;
+import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class ProdutoService {
@@ -30,7 +30,7 @@ public class ProdutoService {
 		Produto obj = repo.findOne(id);
 		
 		if(obj==null) {
-			throw new ObjectNotFoundExcepion("Objeto não encontrado! Id " + id + " Tipo: " + Produto.class.getName());
+			throw new ObjectNotFoundException("Objeto não encontrado! Id " + id + " Tipo: " + Produto.class.getName());
 		}
 		return obj;
 	}
@@ -50,7 +50,7 @@ public class ProdutoService {
 		repo.delete(id);
 		}
 		catch(DataIntegrityViolationException e){
-			throw new DataIntegrityExcepion("Não é possivel excluir uma categoria que possui produto");
+			throw new DataIntegrityException("Não é possivel excluir uma categoria que possui produto");
 		}
 	}
 

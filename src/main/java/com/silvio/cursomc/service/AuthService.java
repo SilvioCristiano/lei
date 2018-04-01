@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;;
+import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;;
 
 @Service
 public class AuthService {
@@ -29,7 +29,7 @@ public class AuthService {
 		
 		Cliente cliente = clienteRepository.findByEmail(email);
 		if (cliente == null) {
-			throw new ObjectNotFoundExcepion("Email não encontrado");
+			throw new ObjectNotFoundException("Email não encontrado");
 		}
 		
 		String newPass = newPassword();

@@ -5,38 +5,61 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 public class StandardError implements Serializable {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private Integer status;
-	private String msg;
+
 	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss.SSS")
 	private Date timeStamp;
+	private Integer status;
+	private String error;
+	private String message;
+	private String path;
 	
-	public StandardError(Integer status, String msg, Date timeStamp) {
+	public StandardError(Date timestamp, Integer status, String error, String message, String path) {
 		super();
+		this.timeStamp = timestamp;
 		this.status = status;
-		this.msg = msg;
-		this.timeStamp = timeStamp;
+		this.error = error;
+		this.message = message;
+		this.path = path;
 	}
+
+	public Date getTimestamp() {
+		return timeStamp;
+	}
+
+	public void setTimestamp(Date timestamp) {
+		this.timeStamp = timestamp;
+	}
+
 	public Integer getStatus() {
 		return status;
 	}
+
 	public void setStatus(Integer status) {
 		this.status = status;
 	}
-	public String getMsg() {
-		return msg;
+
+	public String getError() {
+		return error;
 	}
-	public void setMsg(String msg) {
-		this.msg = msg;
+
+	public void setError(String error) {
+		this.error = error;
 	}
-	public Date getTimeStamp() {
-		return timeStamp;
+
+	public String getMessage() {
+		return message;
 	}
-	public void setTimeStamp(Date timeStamp) {
-		this.timeStamp = timeStamp;
+
+	public void setMessage(String message) {
+		this.message = message;
 	}
-	
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
 }

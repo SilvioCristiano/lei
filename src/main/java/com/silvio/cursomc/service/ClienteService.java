@@ -1,15 +1,19 @@
 package com.silvio.cursomc.service;
 
 
+import java.awt.image.BufferedImage;
+import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.silvio.cursomc.domain.Cidade;
 import com.silvio.cursomc.domain.Cliente;
@@ -23,23 +27,36 @@ import com.silvio.cursomc.repositories.ClienteRepository;
 import com.silvio.cursomc.repositories.EnderecoRepository;
 import com.silvio.cursomc.security.UserSS;
 import com.silvio.cursomc.service.exceptions.AuthorizationException;
-import com.silvio.cursomc.service.exceptions.DataIntegrityExcepion;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundExcepion;
+import com.silvio.cursomc.service.exceptions.DataIntegrityException;
+import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {
+
 	@Autowired
 	private BCryptPasswordEncoder pe;
-	
+
 	@Autowired
 	private ClienteRepository repo;
-	
+
 	@Autowired
 	private CidadeRepository cidadeRepository;
-	
+
 	@Autowired
 	private EnderecoRepository enderecoRepository;
-	
+
+	@Autowired
+	private S3Service s3Service;
+
+	@Autowired
+	private ImageService imageService;
+
+	@Value("${img.prefix.client.profile}")
+	private String prefix;
+
+	@Value("${img.profile.size}")
+	private Integer size;
+
 	public Cliente find(Integer id) {
 
 		UserSS user = UserService.authenticated();
@@ -49,7 +66,7 @@ public class ClienteService {
 
 		Cliente obj = repo.findOne(id);
 		if (obj == null) {
-			throw new ObjectNotFoundExcepion(
+			throw new ObjectNotFoundException(
 					"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName());
 		}
 		return obj;
@@ -75,7 +92,7 @@ public class ClienteService {
 		repo.delete(id);
 		}
 		catch(DataIntegrityViolationException e){
-			throw new DataIntegrityExcepion("Não é possivel excluir porque há pedidos relacionadas");
+			throw new DataIntegrityException("Não é possivel excluir porque há pedidos relacionadas");
 		}
 	}
 
@@ -113,6 +130,21 @@ public class ClienteService {
 		newObj.setName(obj.getName());
 		newObj.setEmail(obj.getEmail());
 		
+	}
+	public URI uploadProfilePicture(MultipartFile multipartFile) {
+
+		UserSS user = UserService.authenticated();
+		if (user == null) {
+			throw new AuthorizationException("Acesso negado");
+		}
+
+		BufferedImage jpgImage = imageService.getJpgImageFromFile(multipartFile);
+		jpgImage = imageService.cropSquare(jpgImage);
+		jpgImage = imageService.resize(jpgImage, size);
+
+		String fileName = prefix + user.getId() + ".jpg";
+
+		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");
 	}
 
 
