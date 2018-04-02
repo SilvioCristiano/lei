@@ -10,10 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.thymeleaf.context.Context;
 import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.domain.Pedido;

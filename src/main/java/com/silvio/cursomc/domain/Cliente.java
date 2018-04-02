@@ -60,12 +60,12 @@ public class Cliente implements Serializable{
 	public Cliente() {
 		addPerfil(Perfil.CLIENTE);
 	}
-	public Cliente(Integer id, String name, String email, String cpfOrCnpj, TipoCliente tipo, String senha) {
+	public Cliente(Integer id, String name, String email, String cpfOuCnpj, TipoCliente tipo, String senha) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.cpfOuCnpj = cpfOrCnpj;
+		this.cpfOuCnpj = cpfOuCnpj;
 		this.tipo = (tipo==null) ? null : tipo.getCod();
 		this.senha = senha;
 	}

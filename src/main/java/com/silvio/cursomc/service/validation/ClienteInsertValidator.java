@@ -28,11 +28,11 @@ public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert
 
 		if (objDto.getTipo().equals(TipoCliente.PESSOAFISICA.getCod()) && !BR.isValidCPF(objDto.getCpfOuCnpj())) {
 			                                                                                   
-			list.add(new FieldMessage("CpfOrCnpj", "CPF Inválido"));
+			list.add(new FieldMessage("CpfOuCnpj", "CPF Inválido"));
 		}
 
 		if (objDto.getTipo().equals(TipoCliente.PESSOAJURICA.getCod()) && !BR.isValidCNPJ(objDto.getCpfOuCnpj())) {
-			list.add(new FieldMessage("CpfOrCnpj", "CNPJ Inválido"));
+			list.add(new FieldMessage("CpfOuCnpj", "CNPJ Inválido"));
 		}
 
 		Cliente aux = repo.findByEmail(objDto.getEmail());

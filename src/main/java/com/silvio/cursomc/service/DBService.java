@@ -37,7 +37,6 @@ public class DBService {
 
 	@Autowired
 	private BCryptPasswordEncoder pe;
-	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	@Autowired
