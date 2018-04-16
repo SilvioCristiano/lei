@@ -19,15 +19,15 @@ public class ProdConfig {
 	@Autowired
 	private DBService dbService;
 	
-	/*@Value("${spring.jpa.hibernate.ddl.auto}")
-	private String strategy;*/
+	@Value("${spring.jpa.hibernate.ddl.auto}")
+	private String strategy;
 	
 	@Bean
 	public boolean instantiateDatabase() throws ParseException {
-		/*
+		
 		if(!"create".equals(strategy)) {
 			return false;
-		}*/
+		}
 		dbService.instantiateTestDatabase();
 		
 		return true;
