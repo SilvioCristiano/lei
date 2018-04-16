@@ -22,6 +22,8 @@ import com.silvio.cursomc.repositories.ProdutoRepository;
 import com.silvio.cursomc.security.UserSS;
 import com.silvio.cursomc.service.exceptions.AuthorizationException;
 import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
+import com.silvio.cursomc.service.EmailService;
+
 @Service
 public class PedidoService {
 	
