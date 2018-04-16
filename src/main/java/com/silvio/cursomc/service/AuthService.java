@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.silvio.cursomc.domain.Cliente;
 import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;;
+import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
+import com.silvio.cursomc.service.EmailService;
 
 @Service
 public class AuthService {
