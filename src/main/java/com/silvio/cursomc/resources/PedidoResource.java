@@ -19,7 +19,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.silvio.cursomc.domain.Pedido;
 import com.silvio.cursomc.service.PedidoService;
-
 @RestController
 @RequestMapping(value="/pedidos")
 public class PedidoResource {
