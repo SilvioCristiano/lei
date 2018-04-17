@@ -1,4 +1,4 @@
-package com.silvio.cursomc.security;
+package com.lei.backend.security;
 
 
 import java.util.Collection;
@@ -9,7 +9,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.silvio.cursomc.domain.enums.Perfil;
+import com.lei.backend.domain.enums.Perfil;
 
 public class UserSS implements UserDetails {
 	private static final long serialVersionUID = 1L;

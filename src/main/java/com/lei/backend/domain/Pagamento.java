@@ -1,4 +1,4 @@
-package com.silvio.cursomc.domain;
+package com.lei.backend.domain;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.silvio.cursomc.domain.enums.EstadoPagamento;
+import com.lei.backend.domain.enums.EstadoPagamento;
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "@type")

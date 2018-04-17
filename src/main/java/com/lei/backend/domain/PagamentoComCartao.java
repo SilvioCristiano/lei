@@ -1,9 +1,9 @@
-package com.silvio.cursomc.domain;
+package com.lei.backend.domain;
 
 import javax.persistence.Entity;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.silvio.cursomc.domain.enums.EstadoPagamento;
+import com.lei.backend.domain.enums.EstadoPagamento;
 @Entity
 @JsonTypeName("pagamentoComCartao")
 public class PagamentoComCartao extends Pagamento{

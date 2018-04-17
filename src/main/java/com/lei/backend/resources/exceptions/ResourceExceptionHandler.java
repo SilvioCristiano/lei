@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources.exceptions;
+package com.lei.backend.resources.exceptions;
 
 
 import java.sql.Timestamp;
@@ -14,11 +14,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.model.AmazonS3Exception;
-
-import com.silvio.cursomc.service.exceptions.AuthorizationException;
-import com.silvio.cursomc.service.exceptions.DataIntegrityException;
-import com.silvio.cursomc.service.exceptions.FileException;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
+import com.lei.backend.service.exceptions.AuthorizationException;
+import com.lei.backend.service.exceptions.DataIntegrityException;
+import com.lei.backend.service.exceptions.FileException;
+import com.lei.backend.service.exceptions.ObjectNotFoundException;
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	Timestamp timestamp = new Timestamp(System.currentTimeMillis());

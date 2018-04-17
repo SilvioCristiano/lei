@@ -1,4 +1,4 @@
-package com.silvio.cursomc.domain;
+package com.lei.backend.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.silvio.cursomc.domain.enums.Perfil;
-import com.silvio.cursomc.domain.enums.TipoCliente;
+import com.lei.backend.domain.enums.Perfil;
+import com.lei.backend.domain.enums.TipoCliente;
 
 @Entity
 public class Cliente implements Serializable{

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.domain.enums;
+package com.lei.backend.domain.enums;
 
 public enum EstadoPagamento {
 

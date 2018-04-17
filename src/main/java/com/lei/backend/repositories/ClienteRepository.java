@@ -1,4 +1,4 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.silvio.cursomc.domain.Cliente;
+import com.lei.backend.domain.Cliente;
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{

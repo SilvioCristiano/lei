@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources;
+package com.lei.backend.resources;
 
 
 import java.util.List;
@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.silvio.cursomc.domain.Cidade;
-import com.silvio.cursomc.domain.Estado;
-import com.silvio.cursomc.dto.CidadeDTO;
-import com.silvio.cursomc.dto.EstadoDTO;
-import com.silvio.cursomc.service.CidadeService;
-import com.silvio.cursomc.service.EstadoService;
+import com.lei.backend.domain.Cidade;
+import com.lei.backend.domain.Estado;
+import com.lei.backend.dto.CidadeDTO;
+import com.lei.backend.dto.EstadoDTO;
+import com.lei.backend.service.CidadeService;
+import com.lei.backend.service.EstadoService;
 
 @RestController
 @RequestMapping(value="/estados")

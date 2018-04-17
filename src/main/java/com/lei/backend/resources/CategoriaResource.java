@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources;
+package com.lei.backend.resources;
 
 
 
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.silvio.cursomc.domain.Categoria;
-import com.silvio.cursomc.dto.CategoriaDTO;
-import com.silvio.cursomc.service.CategoriaService;
+import com.lei.backend.domain.Categoria;
+import com.lei.backend.dto.CategoriaDTO;
+import com.lei.backend.service.CategoriaService;
 
 @RestController
 @RequestMapping(value="/categorias")

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.awt.image.BufferedImage;
@@ -15,20 +15,20 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.silvio.cursomc.domain.Cidade;
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.Endereco;
-import com.silvio.cursomc.domain.enums.Perfil;
-import com.silvio.cursomc.domain.enums.TipoCliente;
-import com.silvio.cursomc.dto.ClienteDTO;
-import com.silvio.cursomc.dto.ClienteNewDTO;
-import com.silvio.cursomc.repositories.CidadeRepository;
-import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.repositories.EnderecoRepository;
-import com.silvio.cursomc.security.UserSS;
-import com.silvio.cursomc.service.exceptions.AuthorizationException;
-import com.silvio.cursomc.service.exceptions.DataIntegrityException;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
+import com.lei.backend.domain.Cidade;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.Endereco;
+import com.lei.backend.domain.enums.Perfil;
+import com.lei.backend.domain.enums.TipoCliente;
+import com.lei.backend.dto.ClienteDTO;
+import com.lei.backend.dto.ClienteNewDTO;
+import com.lei.backend.repositories.CidadeRepository;
+import com.lei.backend.repositories.ClienteRepository;
+import com.lei.backend.repositories.EnderecoRepository;
+import com.lei.backend.security.UserSS;
+import com.lei.backend.service.exceptions.AuthorizationException;
+import com.lei.backend.service.exceptions.DataIntegrityException;
+import com.lei.backend.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {

@@ -1,4 +1,4 @@
-package com.silvio.cursomc;
+package com.lei.backend;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

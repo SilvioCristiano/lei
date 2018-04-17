@@ -1,4 +1,4 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.silvio.cursomc.domain.Categoria;
-import com.silvio.cursomc.domain.Produto;
+import com.lei.backend.domain.Categoria;
+import com.lei.backend.domain.Produto;
 
 @Repository
 public interface ProdutoRepository extends JpaRepository<Produto, Integer>{

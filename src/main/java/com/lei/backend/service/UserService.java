@@ -1,9 +1,9 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.silvio.cursomc.security.UserSS;
+import com.lei.backend.security.UserSS;
 
 public class UserService {
 	

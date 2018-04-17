@@ -1,4 +1,4 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 import java.io.Serializable;
 
@@ -6,8 +6,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.service.validation.ClienteUpdate;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.service.validation.ClienteUpdate;
 
 @ClienteUpdate
 public class ClienteDTO implements Serializable{

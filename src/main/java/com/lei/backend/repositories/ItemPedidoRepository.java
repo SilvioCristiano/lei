@@ -1,9 +1,9 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.silvio.cursomc.domain.ItemPedido;
+import com.lei.backend.domain.ItemPedido;
 
 @Repository
 public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Integer>{

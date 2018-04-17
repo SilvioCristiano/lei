@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.silvio.cursomc.service.exceptions.FileException;
+import com.lei.backend.service.exceptions.FileException;
 
 @Service
 public class S3Service {

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources.utils;
+package com.lei.backend.resources.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.util.List;
@@ -10,11 +10,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Categoria;
-import com.silvio.cursomc.dto.CategoriaDTO;
-import com.silvio.cursomc.repositories.CategoriaRepository;
-import com.silvio.cursomc.service.exceptions.DataIntegrityException;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
+import com.lei.backend.domain.Categoria;
+import com.lei.backend.dto.CategoriaDTO;
+import com.lei.backend.repositories.CategoriaRepository;
+import com.lei.backend.service.exceptions.DataIntegrityException;
+import com.lei.backend.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -68,7 +68,6 @@ public class CategoriaService {
 	}
 	private void updateData(Categoria newObj, Categoria obj) {
 		newObj.setName(obj.getName());
-		
 		
 	}
 }

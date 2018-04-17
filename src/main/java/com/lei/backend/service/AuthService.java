@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.util.Random;
@@ -7,10 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
-import com.silvio.cursomc.service.EmailService;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.repositories.ClienteRepository;
+import com.lei.backend.service.EmailService;
+import com.lei.backend.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class AuthService {

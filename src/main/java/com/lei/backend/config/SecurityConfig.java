@@ -1,4 +1,4 @@
-package com.silvio.cursomc.config;
+package com.lei.backend.config;
 
 import java.util.Arrays;
 
@@ -19,9 +19,9 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import com.silvio.cursomc.security.JWTAuthenticationFilter;
-import com.silvio.cursomc.security.JWTAuthorizationFilter;
-import com.silvio.cursomc.security.JWTUtil;
+import com.lei.backend.security.JWTAuthenticationFilter;
+import com.lei.backend.security.JWTAuthorizationFilter;
+import com.lei.backend.security.JWTUtil;
 
 @Configuration
 @EnableWebSecurity
@@ -42,12 +42,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	};
 
 	private static final String[] PUBLIC_MATCHERS_GET = {
-			"/produtos/**",
+			//"/produtos/**",
 			"/categorias/**",
 			"/estados/**"
 	};
 
 	private static final String[] PUBLIC_MATCHERS_POST = {
+			"/produtos",
 			"/clientes",
 			"/auth/forgot/**"
 	};

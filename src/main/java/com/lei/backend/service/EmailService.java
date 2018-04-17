@@ -1,10 +1,10 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import org.springframework.mail.SimpleMailMessage;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.Pedido;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.Pedido;
 
 
 

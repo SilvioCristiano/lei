@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources;
+package com.lei.backend.resources;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,10 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.dto.ClienteDTO;
-import com.silvio.cursomc.dto.ClienteNewDTO;
-import com.silvio.cursomc.service.ClienteService;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.dto.ClienteDTO;
+import com.lei.backend.dto.ClienteNewDTO;
+import com.lei.backend.service.ClienteService;
 
 @Controller
 @RestController

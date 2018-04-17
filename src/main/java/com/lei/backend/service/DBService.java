@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -8,29 +8,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Categoria;
-import com.silvio.cursomc.domain.Cidade;
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.Endereco;
-import com.silvio.cursomc.domain.Estado;
-import com.silvio.cursomc.domain.ItemPedido;
-import com.silvio.cursomc.domain.Pagamento;
-import com.silvio.cursomc.domain.PagamentoComBoleto;
-import com.silvio.cursomc.domain.PagamentoComCartao;
-import com.silvio.cursomc.domain.Pedido;
-import com.silvio.cursomc.domain.Produto;
-import com.silvio.cursomc.domain.enums.EstadoPagamento;
-import com.silvio.cursomc.domain.enums.Perfil;
-import com.silvio.cursomc.domain.enums.TipoCliente;
-import com.silvio.cursomc.repositories.CategoriaRepository;
-import com.silvio.cursomc.repositories.CidadeRepository;
-import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.repositories.EnderecoRepository;
-import com.silvio.cursomc.repositories.EstadoRepository;
-import com.silvio.cursomc.repositories.ItemPedidoRepository;
-import com.silvio.cursomc.repositories.PagamentoRepository;
-import com.silvio.cursomc.repositories.PedidoRepository;
-import com.silvio.cursomc.repositories.ProdutoRepository;
+import com.lei.backend.domain.Categoria;
+import com.lei.backend.domain.Cidade;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.Endereco;
+import com.lei.backend.domain.Estado;
+import com.lei.backend.domain.ItemPedido;
+import com.lei.backend.domain.Pagamento;
+import com.lei.backend.domain.PagamentoComBoleto;
+import com.lei.backend.domain.PagamentoComCartao;
+import com.lei.backend.domain.Pedido;
+import com.lei.backend.domain.Produto;
+import com.lei.backend.domain.enums.EstadoPagamento;
+import com.lei.backend.domain.enums.Perfil;
+import com.lei.backend.domain.enums.TipoCliente;
+import com.lei.backend.repositories.CategoriaRepository;
+import com.lei.backend.repositories.CidadeRepository;
+import com.lei.backend.repositories.ClienteRepository;
+import com.lei.backend.repositories.EnderecoRepository;
+import com.lei.backend.repositories.EstadoRepository;
+import com.lei.backend.repositories.ItemPedidoRepository;
+import com.lei.backend.repositories.PagamentoRepository;
+import com.lei.backend.repositories.PedidoRepository;
+import com.lei.backend.repositories.ProdutoRepository;
 
 @Service
 public class DBService {

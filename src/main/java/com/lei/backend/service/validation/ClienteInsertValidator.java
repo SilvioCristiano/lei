@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service.validation;
+package com.lei.backend.service.validation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,12 +7,12 @@ import javax.validation.ConstraintValidatorContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.enums.TipoCliente;
-import com.silvio.cursomc.dto.ClienteNewDTO;
-import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.resources.exceptions.FieldMessage;
-import com.silvio.cursomc.service.validation.utils.BR;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.enums.TipoCliente;
+import com.lei.backend.dto.ClienteNewDTO;
+import com.lei.backend.repositories.ClienteRepository;
+import com.lei.backend.resources.exceptions.FieldMessage;
+import com.lei.backend.service.validation.utils.BR;
 
 public class ClienteInsertValidator implements ConstraintValidator<ClienteInsert, ClienteNewDTO> {
 	@Autowired

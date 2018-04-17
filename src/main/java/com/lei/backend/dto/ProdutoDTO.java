@@ -1,6 +1,6 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
-import com.silvio.cursomc.domain.Produto;
+import com.lei.backend.domain.Produto;
 
 public class ProdutoDTO implements java.io.Serializable{
 

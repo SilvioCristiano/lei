@@ -1,9 +1,9 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 
 import java.io.Serializable;
 
-import com.silvio.cursomc.domain.Estado;
+import com.lei.backend.domain.Estado;
 
 public class EstadoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.util.Date;
@@ -6,8 +6,8 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.Pedido;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.Pedido;
 
 
 public abstract class AbstractEmailService implements EmailService {

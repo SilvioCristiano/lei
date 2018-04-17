@@ -1,10 +1,10 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.silvio.cursomc.domain.Pedido;
+import com.lei.backend.domain.Pedido;
 
 public class PedidoDTO implements Serializable{
 	

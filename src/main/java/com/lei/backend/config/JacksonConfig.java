@@ -1,12 +1,12 @@
-package com.silvio.cursomc.config;
+package com.lei.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.silvio.cursomc.domain.PagamentoComBoleto;
-import com.silvio.cursomc.domain.PagamentoComCartao;
+import com.lei.backend.domain.PagamentoComBoleto;
+import com.lei.backend.domain.PagamentoComCartao;
 
 
 

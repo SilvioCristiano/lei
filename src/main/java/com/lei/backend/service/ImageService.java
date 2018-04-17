@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -14,7 +14,7 @@ import org.imgscalr.Scalr;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.silvio.cursomc.service.exceptions.FileException;
+import com.lei.backend.service.exceptions.FileException;
 
 @Service
 public class ImageService {

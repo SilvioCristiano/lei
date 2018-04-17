@@ -1,4 +1,4 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.silvio.cursomc.service.validation.ClienteInsert;
+import com.lei.backend.service.validation.ClienteInsert;
 
 
 

@@ -1,11 +1,11 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 import java.io.Serializable;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.silvio.cursomc.domain.Categoria;
+import com.lei.backend.domain.Categoria;
 
 public class CategoriaDTO implements Serializable{
 	

@@ -1,9 +1,9 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.silvio.cursomc.domain.Categoria;
+import com.lei.backend.domain.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Integer>{

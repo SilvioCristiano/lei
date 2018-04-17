@@ -1,4 +1,4 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 import java.io.Serializable;
 

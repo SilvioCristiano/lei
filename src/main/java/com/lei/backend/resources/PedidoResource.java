@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources;
+package com.lei.backend.resources;
 
 
 
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.silvio.cursomc.domain.Pedido;
-import com.silvio.cursomc.service.PedidoService;
+import com.lei.backend.domain.Pedido;
+import com.lei.backend.service.PedidoService;
 @RestController
 @RequestMapping(value="/pedidos")
 public class PedidoResource {

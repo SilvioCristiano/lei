@@ -1,4 +1,4 @@
-package com.silvio.cursomc.config;
+package com.lei.backend.config;
 
 import java.text.ParseException;
 
@@ -7,9 +7,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.silvio.cursomc.service.DBService;
-import com.silvio.cursomc.service.EmailService;
-import com.silvio.cursomc.service.MockEmailService;
+import com.lei.backend.service.DBService;
+import com.lei.backend.service.EmailService;
+import com.lei.backend.service.MockEmailService;
 
 @Configuration
 @Profile("test")

@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 
 import java.util.Date;
@@ -9,20 +9,20 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.ItemPedido;
-import com.silvio.cursomc.domain.PagamentoComBoleto;
-import com.silvio.cursomc.domain.Pedido;
-import com.silvio.cursomc.domain.enums.EstadoPagamento;
-import com.silvio.cursomc.repositories.ClienteRepository;
-import com.silvio.cursomc.repositories.ItemPedidoRepository;
-import com.silvio.cursomc.repositories.PagamentoRepository;
-import com.silvio.cursomc.repositories.PedidoRepository;
-import com.silvio.cursomc.repositories.ProdutoRepository;
-import com.silvio.cursomc.security.UserSS;
-import com.silvio.cursomc.service.exceptions.AuthorizationException;
-import com.silvio.cursomc.service.exceptions.ObjectNotFoundException;
-import com.silvio.cursomc.service.EmailService;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.ItemPedido;
+import com.lei.backend.domain.PagamentoComBoleto;
+import com.lei.backend.domain.Pedido;
+import com.lei.backend.domain.enums.EstadoPagamento;
+import com.lei.backend.repositories.ClienteRepository;
+import com.lei.backend.repositories.ItemPedidoRepository;
+import com.lei.backend.repositories.PagamentoRepository;
+import com.lei.backend.repositories.PedidoRepository;
+import com.lei.backend.repositories.ProdutoRepository;
+import com.lei.backend.security.UserSS;
+import com.lei.backend.service.EmailService;
+import com.lei.backend.service.exceptions.AuthorizationException;
+import com.lei.backend.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class PedidoService {

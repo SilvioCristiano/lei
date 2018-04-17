@@ -1,4 +1,4 @@
-package com.silvio.cursomc.domain;
+package com.lei.backend.domain;
 
 import java.io.Serializable;
 

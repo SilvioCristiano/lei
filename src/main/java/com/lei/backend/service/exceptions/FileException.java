@@ -1,4 +1,4 @@
-package com.silvio.cursomc.service.exceptions;
+package com.lei.backend.service.exceptions;
 
 public class FileException extends RuntimeException {
 

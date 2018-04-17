@@ -1,4 +1,4 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.silvio.cursomc.domain.Cidade;
+import com.lei.backend.domain.Cidade;
 
 @Repository
 public interface CidadeRepository extends JpaRepository<Cidade, Integer>{

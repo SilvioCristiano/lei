@@ -1,9 +1,9 @@
-package com.silvio.cursomc.dto;
+package com.lei.backend.dto;
 
 
 import java.io.Serializable;
 
-import com.silvio.cursomc.domain.Cidade;
+import com.lei.backend.domain.Cidade;
 
 public class CidadeDTO implements Serializable {
 	private static final long serialVersionUID = 1L;

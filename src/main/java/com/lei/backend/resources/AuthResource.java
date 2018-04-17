@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources;
+package com.lei.backend.resources;
 
 
 import javax.servlet.http.HttpServletResponse;
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.silvio.cursomc.dto.EmailDTO;
-import com.silvio.cursomc.security.JWTUtil;
-import com.silvio.cursomc.security.UserSS;
-import com.silvio.cursomc.service.AuthService;
-import com.silvio.cursomc.service.UserService;
+import com.lei.backend.dto.EmailDTO;
+import com.lei.backend.security.JWTUtil;
+import com.lei.backend.security.UserSS;
+import com.lei.backend.service.AuthService;
+import com.lei.backend.service.UserService;
 
 
 @RestController

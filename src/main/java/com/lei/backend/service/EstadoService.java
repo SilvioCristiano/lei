@@ -1,12 +1,12 @@
-package com.silvio.cursomc.service;
+package com.lei.backend.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.silvio.cursomc.domain.Estado;
-import com.silvio.cursomc.repositories.EstadoRepository;
+import com.lei.backend.domain.Estado;
+import com.lei.backend.repositories.EstadoRepository;
 
 @Service
 public class EstadoService {

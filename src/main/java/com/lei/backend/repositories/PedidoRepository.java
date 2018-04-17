@@ -1,4 +1,4 @@
-package com.silvio.cursomc.repositories;
+package com.lei.backend.repositories;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.silvio.cursomc.domain.Cliente;
-import com.silvio.cursomc.domain.Pedido;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.Pedido;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Integer>{

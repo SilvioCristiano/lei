@@ -1,4 +1,4 @@
-package com.silvio.cursomc.resources.exceptions;
+package com.lei.backend.resources.exceptions;
 
 import java.io.Serializable;
 
