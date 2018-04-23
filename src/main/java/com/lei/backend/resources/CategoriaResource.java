@@ -24,19 +24,24 @@ import com.lei.backend.domain.Categoria;
 import com.lei.backend.dto.CategoriaDTO;
 import com.lei.backend.service.CategoriaService;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
+
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
 
 	@Autowired
 	private CategoriaService service;
-
+	@ApiOperation(value="Busca categoria por id")
 	@RequestMapping(value ="/{id}",method=RequestMethod.GET)
 	public ResponseEntity<Categoria> find(@PathVariable Integer id) {
 		Categoria obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Insere categoria")
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Categoria> insert(@Valid @RequestBody CategoriaDTO objDTO) {
 		Categoria obj = service.fromDTO(objDTO);
@@ -46,6 +51,7 @@ public class CategoriaResource {
 		return ResponseEntity.created(url).build();
 	}
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Atualiza categoria")
 	@RequestMapping(value ="/{id}",method=RequestMethod.PUT)
 	public ResponseEntity<Void> update(@Valid @RequestBody CategoriaDTO objDTO,@PathVariable Integer id){
 		Categoria obj = service.fromDTO(objDTO);
@@ -55,6 +61,10 @@ public class CategoriaResource {
 		return ResponseEntity.noContent().build();
 	}
 	@PreAuthorize("hasAnyRole('ADMIN')")
+	@ApiOperation(value="Remove categoria")
+	@ApiResponses(value = {
+			@ApiResponse(code = 400, message = "Não é possível excluir uma categoria que possui produtos"), 
+			@ApiResponse(code = 404, message = "Código inexistente") })
 	@RequestMapping(value ="/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
 		service.delete(id);
@@ -62,6 +72,7 @@ public class CategoriaResource {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
+	@ApiOperation(value="Retorna todas categorias")
 	public ResponseEntity<List<CategoriaDTO>> findAll() {
 		List<Categoria> list = service.findAll();
 		List<CategoriaDTO> listDto = list.stream().map(obj -> new  CategoriaDTO(obj)).collect(Collectors.toList());
@@ -69,6 +80,7 @@ public class CategoriaResource {
 	}
 	
 	@RequestMapping(value="/page", method=RequestMethod.GET)
+	@ApiOperation(value="Retorna todas categorias com paginação")
 	public ResponseEntity<Page<CategoriaDTO>> findPage(
 			@RequestParam(value="page", defaultValue="0") Integer page, 
 			@RequestParam(value="linePerPage", defaultValue="24")Integer linePerPage, 
