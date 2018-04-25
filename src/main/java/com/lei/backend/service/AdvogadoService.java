@@ -122,16 +122,9 @@ public class AdvogadoService {
 	
 	public Advogado findByInscricao(String inscricao) {
 
-		UserSS user = UserService.authenticated();
-		if (user == null || !user.hasRole(Perfil.ADMIN) && !inscricao.equals(user.getUsername())) {
-			throw new AuthorizationException("Acesso negado");
-		}
-
+	
 		Advogado obj = repo.findByInscricao(inscricao);
-		if (obj == null) {
-			throw new ObjectNotFoundException(
-					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Cliente.class.getName());
-		}
+		
 		return obj;
 	}
 }
