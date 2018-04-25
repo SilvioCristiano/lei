@@ -18,7 +18,7 @@ import com.lei.backend.repositories.ClienteRepository;
 import com.lei.backend.repositories.ItemPedidoRepository;
 import com.lei.backend.repositories.PagamentoRepository;
 import com.lei.backend.repositories.PedidoRepository;
-import com.lei.backend.repositories.ProdutoRepository;
+import com.lei.backend.repositories.AdvogadoRepository;
 import com.lei.backend.security.UserSS;
 import com.lei.backend.service.EmailService;
 import com.lei.backend.service.exceptions.AuthorizationException;
@@ -37,7 +37,7 @@ public class PedidoService {
 	private PagamentoRepository pagamentoRepository;
 	
 	@Autowired
-	private ProdutoRepository produtoRepository;
+	private AdvogadoRepository advogadoRepository;
 	
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
@@ -71,8 +71,8 @@ public class PedidoService {
 		pagamentoRepository.save(obj.getPagamento());
 		for (ItemPedido ip : obj.getItens()) {
 			ip.setDesconto(0.0);
-			ip.setProduto(produtoRepository.findOne(ip.getProduto().getId()));
-			ip.setPreco(ip.getProduto().getPreco());
+			ip.setAdvogado(advogadoRepository.findOne(ip.getAdvogado().getId()));
+			ip.setPreco(ip.getAdvogado().getPreco());
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.save(obj.getItens());

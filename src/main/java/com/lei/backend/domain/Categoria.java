@@ -19,7 +19,7 @@ public class Categoria implements java.io.Serializable{
 	private String name;
 	
 	@ManyToMany(mappedBy="categorias")
-	private List<Produto> produtos = new ArrayList<>();
+	private List<Advogado> advogados = new ArrayList<>();
 	
 	public Categoria() {
 		
@@ -40,12 +40,12 @@ public class Categoria implements java.io.Serializable{
 		this.id = id;
 	}
 
-	public List<Produto> getProdutos() {
-		return produtos;
+	public List<Advogado> getAdvogados() {
+		return advogados;
 	}
 
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
+	public void setAdvogados(List<Advogado> advogados) {
+		this.advogados = advogados;
 	}
 
 	public String getName() {

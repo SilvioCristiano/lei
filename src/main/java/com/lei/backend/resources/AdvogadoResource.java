@@ -19,26 +19,26 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.lei.backend.domain.Produto;
-import com.lei.backend.dto.ProdutoDTO;
+import com.lei.backend.domain.Advogado;
+import com.lei.backend.dto.AdvogadoDTO;
 import com.lei.backend.resources.utils.URL;
-import com.lei.backend.service.ProdutoService;
+import com.lei.backend.service.AdvogadoService;
 
 @RestController
-@RequestMapping(value="/produtos")
-public class ProdutoResource {
+@RequestMapping(value="/advogados")
+public class AdvogadoResource {
 
 	@Autowired
-	private ProdutoService service;
+	private AdvogadoService service;
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public ResponseEntity<Produto> find(@PathVariable Integer id) {
-		Produto obj = service.find(id);
+	public ResponseEntity<Advogado> find(@PathVariable Integer id) {
+		Advogado obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<Page<ProdutoDTO>> findPage(
+	public ResponseEntity<Page<AdvogadoDTO>> findPage(
 			@RequestParam(value="name", defaultValue="") String name, 
 			@RequestParam(value="categorias", defaultValue="") String categorias, 
 			@RequestParam(value="page", defaultValue="0") Integer page, 
@@ -47,14 +47,20 @@ public class ProdutoResource {
 			@RequestParam(value="direction", defaultValue="ASC") String direction) {
 		String nomeDecoded = URL.decodeParam(name);
 		List<Integer> ids = URL.decodeIntList(categorias);
-		Page<Produto> list = service.search(nomeDecoded, ids, page, linesPerPage, orderBy, direction);
-		Page<ProdutoDTO> listDto = list.map(obj -> new ProdutoDTO(obj));  
+		Page<Advogado> list = service.search(nomeDecoded, ids, page, linesPerPage, orderBy, direction);
+		Page<AdvogadoDTO> listDto = list.map(obj -> new AdvogadoDTO(obj));  
 		return ResponseEntity.ok().body(listDto);
 	}
 	
+	@RequestMapping(value="/inscricao", method=RequestMethod.GET)
+	public ResponseEntity<Advogado> find(@RequestParam(value="value") String inscricao) {
+		Advogado obj = service.findByInscricao(inscricao);
+		return ResponseEntity.ok().body(obj);
+	}
+	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Produto> insert(@Valid @RequestBody ProdutoDTO objDTO) {
-		Produto obj = service.fromDTO(objDTO);
+	public ResponseEntity<Advogado> insert(@Valid @RequestBody AdvogadoDTO objDTO) {
+		Advogado obj = service.fromDTO(objDTO);
 		obj = service.insert(obj);
 		URI url = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(obj.getId()).toUri();
@@ -62,8 +68,8 @@ public class ProdutoResource {
 	}
 	//@PreAuthorize("hasAnyRole('ADMIN')")
 	@RequestMapping(value ="/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<Void> update(@Valid @RequestBody ProdutoDTO objDTO,@PathVariable Integer id){
-		Produto obj = service.fromDTO(objDTO);
+	public ResponseEntity<Void> update(@Valid @RequestBody AdvogadoDTO objDTO,@PathVariable Integer id){
+		Advogado obj = service.fromDTO(objDTO);
 		obj.setId(id); 
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();

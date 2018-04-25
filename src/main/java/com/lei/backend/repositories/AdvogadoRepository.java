@@ -11,11 +11,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lei.backend.domain.Categoria;
-import com.lei.backend.domain.Produto;
+import com.lei.backend.domain.Advogado;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, Integer>{
+public interface AdvogadoRepository extends JpaRepository<Advogado, Integer>{
 	@Transactional(readOnly=true)
-	@Query("SELECT DISTINCT obj FROM Produto obj INNER JOIN obj.categorias cat WHERE obj.name LIKE %:name% AND cat IN :categorias")
-	Page<Produto> findDistinctByNameContainingAndCategoriasIn(@Param("name") String name, @Param("categorias") List<Categoria> categorias, Pageable pageRequest);
+	@Query("SELECT DISTINCT obj FROM Advogado obj INNER JOIN obj.categorias cat WHERE obj.name LIKE %:name% AND cat IN :categorias")
+	Page<Advogado> findDistinctByNameContainingAndCategoriasIn(@Param("name") String name, @Param("categorias") List<Categoria> categorias, Pageable pageRequest);
+
+	@Transactional(readOnly=true)
+	Advogado findByInscricao(String inscricao);
 }

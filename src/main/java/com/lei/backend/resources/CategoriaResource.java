@@ -63,7 +63,7 @@ public class CategoriaResource {
 	@PreAuthorize("hasAnyRole('ADMIN')")
 	@ApiOperation(value="Remove categoria")
 	@ApiResponses(value = {
-			@ApiResponse(code = 400, message = "Não é possível excluir uma categoria que possui produtos"), 
+			@ApiResponse(code = 400, message = "Não é possível excluir uma categoria que possui advogados"), 
 			@ApiResponse(code = 404, message = "Código inexistente") })
 	@RequestMapping(value ="/{id}",method=RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {

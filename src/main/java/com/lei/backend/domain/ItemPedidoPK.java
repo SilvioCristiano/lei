@@ -18,19 +18,19 @@ public class ItemPedidoPK implements Serializable {
 	@JoinColumn(name="pedido_id")
 	private Pedido pedido;
 	@ManyToOne
-	@JoinColumn(name="produto_id")
-	private Produto produto;
+	@JoinColumn(name="advogado_id")
+	private Advogado advogado;
 	public Pedido getPedido() {
 		return pedido;
 	}
 	public void setPedido(Pedido pedido) {
 		this.pedido = pedido;
 	}
-	public Produto getProduto() {
-		return produto;
+	public Advogado getAdvogado() {
+		return advogado;
 	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setAdvogado(Advogado advogado) {
+		this.advogado = advogado;
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -40,7 +40,7 @@ public class ItemPedidoPK implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((pedido == null) ? 0 : pedido.hashCode());
-		result = prime * result + ((produto == null) ? 0 : produto.hashCode());
+		result = prime * result + ((advogado == null) ? 0 : advogado.hashCode());
 		return result;
 	}
 	@Override
@@ -57,10 +57,10 @@ public class ItemPedidoPK implements Serializable {
 				return false;
 		} else if (!pedido.equals(other.pedido))
 			return false;
-		if (produto == null) {
-			if (other.produto != null)
+		if (advogado == null) {
+			if (other.advogado != null)
 				return false;
-		} else if (!produto.equals(other.produto))
+		} else if (!advogado.equals(other.advogado))
 			return false;
 		return true;
 	}

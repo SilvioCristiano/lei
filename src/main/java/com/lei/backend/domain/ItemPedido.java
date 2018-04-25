@@ -25,10 +25,10 @@ public class ItemPedido implements Serializable {
 	public ItemPedido() {
 	}
 
-	public ItemPedido(Pedido pedido, Produto produto, Double desconto, Integer quantidade, Double preco) {
+	public ItemPedido(Pedido pedido, Advogado advogado, Double desconto, Integer quantidade, Double preco) {
 		super();
 		id.setPedido(pedido);
-		id.setProduto(produto);
+		id.setAdvogado(advogado);
 		this.desconto = desconto;
 		this.quantidade = quantidade;
 		this.preco = preco;
@@ -47,12 +47,12 @@ public class ItemPedido implements Serializable {
 		id.setPedido(pedido);
 	}
 	
-	public Produto getProduto() {
-		return id.getProduto();
+	public Advogado getAdvogado() {
+		return id.getAdvogado();
 	}
 	
-	public void setProduto(Produto produto) {
-		id.setProduto(produto);
+	public void setAdvogado(Advogado advogados) {
+		id.setAdvogado(advogados);
 	}
 	
 	public ItemPedidoPK getId() {
@@ -116,7 +116,7 @@ public class ItemPedido implements Serializable {
 	public String toString() {
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 		StringBuilder builder = new StringBuilder();
-		builder.append(getProduto().getName());
+		builder.append(getAdvogado().getName());
 		builder.append(", Qte: ");
 		builder.append(getQuantidade());
 		builder.append(", Preço unitário: ");

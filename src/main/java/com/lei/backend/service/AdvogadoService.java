@@ -15,19 +15,21 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.lei.backend.domain.Categoria;
-import com.lei.backend.domain.Produto;
-import com.lei.backend.dto.ProdutoDTO;
+import com.lei.backend.domain.Cliente;
+import com.lei.backend.domain.enums.Perfil;
+import com.lei.backend.domain.Advogado;
+import com.lei.backend.dto.AdvogadoDTO;
 import com.lei.backend.repositories.CategoriaRepository;
-import com.lei.backend.repositories.ProdutoRepository;
+import com.lei.backend.repositories.AdvogadoRepository;
 import com.lei.backend.security.UserSS;
 import com.lei.backend.service.exceptions.AuthorizationException;
 import com.lei.backend.service.exceptions.DataIntegrityException;
 import com.lei.backend.service.exceptions.ObjectNotFoundException;
 
 @Service
-public class ProdutoService {
+public class AdvogadoService {
 	@Autowired
-	private ProdutoRepository repo;
+	private AdvogadoRepository repo;
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -45,22 +47,22 @@ public class ProdutoService {
 	@Value("${img.profile.size}")
 	private Integer size;
 	
-	public Produto find(Integer id) {
+	public Advogado find(Integer id) {
 
-		Produto obj = repo.findOne(id);
+		Advogado obj = repo.findOne(id);
 		
 		if(obj==null) {
-			throw new ObjectNotFoundException("Objeto não encontrado! Id " + id + " Tipo: " + Produto.class.getName());
+			throw new ObjectNotFoundException("Objeto não encontrado! Id " + id + " Tipo: " + Advogado.class.getName());
 		}
 		return obj;
 	}
-	public Produto insert(Produto obj) {
+	public Advogado insert(Advogado obj) {
 		obj.setId(null);
 		return repo.save(obj);
 	}
 
-	public Produto update(Produto obj) {
-		Produto newObj = find(obj.getId());
+	public Advogado update(Advogado obj) {
+		Advogado newObj = find(obj.getId());
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
@@ -71,20 +73,20 @@ public class ProdutoService {
 		repo.delete(id);
 		}
 		catch(DataIntegrityViolationException e){
-			throw new DataIntegrityException("Não é possivel excluir uma categoria que possui produto");
+			throw new DataIntegrityException("Não é possivel excluir uma categoria que possui advogados");
 		}
 	}
 
-	public List<Produto> findAll() {
+	public List<Advogado> findAll() {
 		return repo.findAll();
 	}
 	
-	public Page<Produto> findPage(Integer page, Integer linePerPage, String orgerBy, String direction){
+	public Page<Advogado> findPage(Integer page, Integer linePerPage, String orgerBy, String direction){
 		PageRequest pageRequest = new PageRequest(page, linePerPage,Direction.valueOf(direction), orgerBy);
 		return repo.findAll(pageRequest);
 		
 	}
-	public Page<Produto> search(String name, List<Integer> ids, Integer page, Integer linesPerPage, String orderBy, String direction) {
+	public Page<Advogado> search(String name, List<Integer> ids, Integer page, Integer linesPerPage, String orderBy, String direction) {
 		PageRequest pageRequest = new PageRequest(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		List<Categoria> categorias = categoriaRepository.findAll(ids);
 		return repo.findDistinctByNameContainingAndCategoriasIn(name, categorias, pageRequest);	
@@ -105,15 +107,31 @@ public class ProdutoService {
 		return s3Service.uploadFile(imageService.getInputStream(jpgImage, "jpg"), fileName, "image");
 	}
 	
-	public Produto fromDTO(ProdutoDTO objDTO) {
-		return new Produto(objDTO.getId(), objDTO.getName(),objDTO.getPreco());
+	public Advogado fromDTO(AdvogadoDTO objDTO) {
+		return new Advogado(objDTO.getId(), objDTO.getName(),objDTO.getPreco(), 
+				objDTO.getInscricao(), objDTO.getSaccional(),objDTO.getEmail(),objDTO.getCpfOuCnpj());
 		
 	}
 	
-	private void updateData(Produto newObj, Produto obj) {
+	private void updateData(Advogado newObj, Advogado obj) {
 		newObj.setName(obj.getName());
 		newObj.setPreco(obj.getPreco());
 	  //newObj.setCategorias(obj.getCategorias());
 		
+	}
+	
+	public Advogado findByInscricao(String inscricao) {
+
+		UserSS user = UserService.authenticated();
+		if (user == null || !user.hasRole(Perfil.ADMIN) && !inscricao.equals(user.getUsername())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+
+		Advogado obj = repo.findByInscricao(inscricao);
+		if (obj == null) {
+			throw new ObjectNotFoundException(
+					"Objeto não encontrado! Id: " + user.getId() + ", Tipo: " + Cliente.class.getName());
+		}
+		return obj;
 	}
 }
